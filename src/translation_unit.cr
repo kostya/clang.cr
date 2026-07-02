@@ -52,6 +52,7 @@ module Clang
     def tokenize(source_range, skip = 0)
       LibC.clang_tokenize(self, source_range, out tokens, out count)
       begin
+        return if count == 0
         skip.upto(count - 1) do |index|
           yield Token.new(self, tokens[index])
         end
