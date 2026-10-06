@@ -4,6 +4,7 @@ require "./clang-c/*"
 lib LibC
   LLVM_CONFIG = {{
                   `[ -n "$LLVM_CONFIG" ] && command -v "$LLVM_CONFIG" || \
+                   command -v llvm-config-23 || \
                    command -v llvm-config-22 || \
                    command -v llvm-config-21 || \
                    command -v llvm-config-20 || \
